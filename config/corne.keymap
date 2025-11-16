@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h> // Adicionado para referência de RGB
 
 / {
     keymap {
@@ -17,55 +18,66 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+            //                     | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             display-name = "Base";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E         &kp R             &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D         &kp F             &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C         &kp V             &kp B        &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-                         &kp LEFT_ALT  &kp LEFT_COMMAND  &kp ENTER    &kp SPACE  &mo 1  &mo 2
+&kp TAB     &kp Q    &kp W    &kp E       &kp R           &kp T       &kp Y       &kp U    &kp I       &kp O     &kp P       &kp BSPC
+&kp LCTRL   &kp A    &kp S    &kp D       &kp F           &kp G       &kp H       &kp J    &kp K       &kp L     &kp SEMI    &kp SQT
+&kp LSHFT   &kp Z    &kp X    &kp C       &kp V           &kp B       &kp N       &kp M    &kp COMMA   &kp DOT   &kp FSLH    &kp RIGHT_SHIFT
+                                &kp LEFT_ALT &kp LEFT_COMMAND &kp ENTER   &kp SPACE &mo 1     &mo 2
             >;
         };
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |      |      |
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            //                     | GUI |     | SPC |   | ENT |     | ALT |
 
             display-name = "Lower";
             bindings = <
-&trans  &kp ESCAPE        &kp GRAVE          &kp MINUS             &kp EQUAL              &kp RS(DOLLAR)    &trans         &kp EXCL  &kp UP_ARROW  &trans     &trans             &kp DELETE
-&trans  &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AMPERSAND     &kp BACKSPACE  &kp LEFT  &kp DOWN      &kp RIGHT  &kp C_VOLUME_UP    &trans
-&trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LESS_THAN         &kp GREATER_THAN       &kp BACKSLASH     &trans         &kp DEL   &trans        &kp RCTRL  &kp C_VOLUME_DOWN  &trans
-                                             &trans                &trans                 &kp LG(ENTER)     &trans         &trans    &mo 3
+&trans  &kp ESCAPE        &kp GRAVE         &kp MINUS             &kp EQUAL             &kp RS(DOLLAR)  &trans          &kp EXCL  &kp UP_ARROW    &trans      &trans          &kp DELETE
+&trans  &kp LEFT_BRACE    &kp RIGHT_BRACE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS &kp AMPERSAND   &kp BACKSPACE   &kp LEFT  &kp DOWN        &kp RIGHT   &kp C_VOLUME_UP &trans
+&trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET &kp LESS_THAN         &kp GREATER_THAN      &kp BACKSLASH   &trans          &kp DEL   &trans          &kp RCTRL   &kp C_VOLUME_DOWN &trans
+                                            &trans                &trans                &kp LG(ENTER)   &trans          &trans    &mo 3
             >;
         };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  * |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            //                     | GUI |     | SPC |   | ENT |     | ALT |
 
             display-name = "Raise";
             bindings = <
-&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5           &kp NUMBER_6  &kp N7         &kp N8       &kp N9        &kp N0           &kp DELETE
-&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6           &kp F7        &kp F8         &kp F9       &kp F10       &kp F11          &kp F12
-&trans      &trans        &trans        &trans        &trans        &trans           &trans        &kp PAGE_DOWN  &kp PAGE_UP  &kp C_VOL_DN  &kp C_VOLUME_UP  &trans
-                                        &trans        &trans        &kp LA(ENTER)    &trans        &mo 3          &trans
+&kp ESCAPE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5          &kp NUMBER_6  &kp N7         &kp N8        &kp N9        &kp N0          &kp DELETE
+&kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F6          &kp F7        &kp F8         &kp F9        &kp F10       &kp F11         &kp F12
+&trans      &trans        &trans        &trans        &trans        &trans          &trans        &kp PAGE_DOWN  &kp PAGE_UP   &kp C_VOL_DN  &kp C_VOLUME_UP &trans
+                                        &trans        &trans        &kp LA(ENTER)   &trans        &mo 3         &trans
             >;
         };
 
         layer_3 {
+            display-name = "System/RGB"; // CAMADA MODIFICADA AQUI
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
-&kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans        &trans        &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
-                                          &trans        &trans  &trans    &trans  &trans  &trans
+        /* Esquerda: Controles BT (adiconei o BT_CLR) */
+        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+        /* Direita: Controles RGB (Efeitos e Cores) */
+                                                                          &rgb_ug_eff_dec &rgb_ug_hue_inc &rgb_ug_sat_inc &rgb_ug_brt_inc &rgb_ug_eff_inc &trans
+        /* Esquerda: Transparente */
+        &trans        &trans        &trans        &trans        &trans  &trans
+        /* Direita: Controles RGB (Toggle e Cores) */
+                                                                          &rgb_ug_tog     &rgb_ug_hue_dec &rgb_ug_sat_dec &rgb_ug_brt_dec &trans          &trans
+        /* Esquerda: Transparente */
+        &trans        &trans        &trans        &trans        &trans  &trans
+        /* Direita: Transparente */
+                                                                          &trans          &trans          &trans          &trans          &trans          &trans
+        /* Thumbs: Transparente (importante para não vazar) */
+                                    &trans        &trans        &trans        &trans          &trans          &trans
             >;
         };
     };
