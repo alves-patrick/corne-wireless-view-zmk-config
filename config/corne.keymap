@@ -63,19 +63,19 @@
         };
 
             layer_3 {
-            display-name = "System/RGB-Matrix"; // Mudei o nome para ficar claro
+            display-name = "System/RGB"; // Voltamos ao nome original
             bindings = <
             /* ----- LINHA DE CIMA ----- */
-            /* Esquerda: BT */
+            /* Esquerda: BT (como no seu Sofle) */
             &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-            /* Direita: RGB (Toggle, Hue+, Sat+, Bright+, Effect+) */
-                                                                              &rgb_kp RGB_TOG &rgb_kp RGB_HUI &rgb_kp RGB_SAI &rgb_kp RGB_BRI &rgb_kp RGB_EFF &trans
+            /* Direita: RGB (Baseado no seu Sofle) */
+                                                                              &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &trans
 
             /* ----- LINHA DO MEIO ----- */
             /* Esquerda: Power Toggle (do seu Sofle) */
             &ext_power EP_TOG &trans        &trans        &trans        &trans  &trans
-            /* Direita: RGB (Hue-, Sat-, Bright-) */
-                                                                              &trans          &rgb_kp RGB_HUD &rgb_kp RGB_SAD &rgb_kp RGB_BRD &trans          &trans
+            /* Direita: RGB (Baseado no seu Sofle) */
+                                                                              &trans          &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &trans          &trans
 
             /* ----- LINHA DE BAIXO ----- */
             &trans        &trans        &trans        &trans        &trans  &trans
