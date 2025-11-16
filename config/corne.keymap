@@ -62,28 +62,28 @@
             >;
         };
 
-        layer_3 {
+            layer_3 {
             display-name = "System/RGB";
             bindings = <
-        /* Esquerda: Controles BT (como no seu Sofle) */
-        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-        /* Direita: Controles RGB (Efeitos e Cores +) */
-                                                                          /* Efeito- */   /* Cor+ */      /* Sat+ */      /* Brilho+ */   /* Efeito+ */
-                                                                          &rgb_ug RGB_EFR &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &trans
-        
-        /* Esquerda: (Peguei o controle de energia do seu Sofle) */
-        &ext_power EP_TOG &trans        &trans        &trans        &trans  &trans
-        /* Direita: Controles RGB (Toggle e Cores -) */
-                                                                          /* Toggle */    /* Cor- */      /* Sat- */      /* Brilho- */
-                                                                          &rgb_ug RGB_TOG &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &trans          &trans
-        
-        /* Esquerda: Transparente */
-        &trans        &trans        &trans        &trans        &trans  &trans
-        /* Direita: Transparente */
-                                                                          &trans          &trans          &trans          &trans          &trans          &trans
-        
-        /* Thumbs: Transparente */
-                                    &trans        &trans        &trans        &trans          &trans          &trans
+            /* ----- LINHA DE CIMA ----- */
+            /* Esquerda: BT */
+            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+            /* Direita: RGB (Toggle, Hue+, Sat+, Bright+, Effect+) */
+                                                                              &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &trans
+
+            /* ----- LINHA DO MEIO ----- */
+            /* Esquerda: Power Toggle (do seu Sofle) */
+            &ext_power EP_TOG &trans        &trans        &trans        &trans  &trans
+            /* Direita: RGB (Hue-, Sat-, Bright-) */
+                                                                              &trans          &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &trans          &trans
+
+            /* ----- LINHA DE BAIXO ----- */
+            &trans        &trans        &trans        &trans        &trans  &trans
+                                                                              &trans          &trans          &trans          &trans          &trans          &trans
+            
+            /* ----- POLEGARES (THUMBS) ----- */
+                                        &trans        &trans        &trans
+                                                                              &trans          &trans          &trans
             >;
         };
     };
